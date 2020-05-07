@@ -1,7 +1,5 @@
-import time
 import tkinter as tk
 from tkinter import Tk,Label,Button,Frame
-import datetime
 from Cronometro import Cronometro
 from tkinter.constants import BOTTOM
 
