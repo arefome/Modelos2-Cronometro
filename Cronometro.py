@@ -11,7 +11,7 @@ class Cronometro:
 		self._activo = True
 		
 	def aumentoDecima(self):
-		time.sleep(.001)		
+		time.sleep(0.01)		
 		self._decima +=1
 
 	def aumentoSegundo(self):		

@@ -1,9 +1,6 @@
-import time
 import tkinter as tk
 from tkinter import Tk,Label,Button,Frame
-import datetime
 from Cronometro import Cronometro
-from tkinter.constants import BOTTOM
 
 
 class VentanaCronometro():
@@ -25,14 +22,14 @@ class VentanaCronometro():
         self.btnParar.grid(row=1, column=2)
         btnReiniciar = Button(self.frame, fg='blue', text='Reiniciar', command=self.reiniciar)
         btnReiniciar.grid(row=1, column=3)
-        self.frame.pack(side = BOTTOM)
+        self.frame.pack(side = tk.BOTTOM)
         self.ventana.mainloop()
         
     def actualizar(self):
         global proceso
         self.cronometro.iniciar()
         self.cronometro_label.configure(text = self.cronometro.mostrarTiempo())
-        proceso = self.ventana.after(10, self.actualizar)
+        proceso = self.ventana.after(1, self.actualizar)
         self.btnIniciar.grid_forget()
     
     def parar(self):
@@ -45,7 +42,7 @@ class VentanaCronometro():
         else:
             self.btnParar.configure(text = 'Parar')
             self.activo = True
-            proceso = self.ventana.after(10, self.actualizar)
+            proceso = self.ventana.after(1, self.actualizar)
     
     def reiniciar(self):
         global proceso
@@ -53,6 +50,6 @@ class VentanaCronometro():
         self.ventana.after_cancel(proceso)
         self.cronometro_label.configure(text = self.cronometro.mostrarTiempo())
         self.btnIniciar.grid(row=1,column=1)
-        self.frame.pack(side=BOTTOM)
+        self.frame.pack(side=tk.BOTTOM)
         
 main = VentanaCronometro()
